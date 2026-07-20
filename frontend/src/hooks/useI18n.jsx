@@ -5,6 +5,7 @@ const messages = {
     "appName": "CMS Platform",
     "appTagline": "Content & publishing",
     "logout": "Log out",
+    "loading": "Loading…",
     "language": "Language",
     "login": {
       "title": "CMS Platform",
@@ -13,19 +14,23 @@ const messages = {
       "password": "Password",
       "submit": "Sign in",
       "loading": "Signing in…",
-      "error": "Invalid credentials"
+      "error": "Invalid credentials",
+      "hint": "admin@platform.test / password"
     },
     "nav": {
       "home": "Dashboard",
       "contents": "Contents",
-      "categories": "Categories"
+      "search": "Search"
     },
-    "dashboard": "Dashboard"
+    "dashboard": {
+      "title": "Dashboard"
+    }
   },
   "es": {
     "appName": "Plataforma CMS",
     "appTagline": "Contenido y publicación",
     "logout": "Cerrar sesión",
+    "loading": "Cargando…",
     "language": "Idioma",
     "login": {
       "title": "Plataforma CMS",
@@ -34,19 +39,23 @@ const messages = {
       "password": "Contraseña",
       "submit": "Iniciar sesión",
       "loading": "Entrando…",
-      "error": "Credenciales inválidas"
+      "error": "Credenciales inválidas",
+      "hint": "admin@platform.test / password"
     },
     "nav": {
       "home": "Dashboard",
       "contents": "Contenidos",
-      "categories": "Categorías"
+      "search": "Buscar"
     },
-    "dashboard": "Dashboard"
+    "dashboard": {
+      "title": "Dashboard"
+    }
   },
   "pt": {
     "appName": "Plataforma CMS",
     "appTagline": "Conteúdo e publicação",
     "logout": "Sair",
+    "loading": "Carregando…",
     "language": "Idioma",
     "login": {
       "title": "Plataforma CMS",
@@ -55,14 +64,17 @@ const messages = {
       "password": "Senha",
       "submit": "Entrar",
       "loading": "Entrando…",
-      "error": "Credenciais inválidas"
+      "error": "Credenciais inválidas",
+      "hint": "admin@platform.test / password"
     },
     "nav": {
       "home": "Dashboard",
       "contents": "Conteúdos",
-      "categories": "Categorias"
+      "search": "Buscar"
     },
-    "dashboard": "Dashboard"
+    "dashboard": {
+      "title": "Dashboard"
+    }
   }
 }
 
@@ -89,7 +101,7 @@ export function I18nProvider({ children }) {
     for (const p of parts) cur = cur?.[p]
     return typeof cur === 'string' ? cur : key
   }, [locale])
-  const value = useMemo(() => ({ locale, setLocale, t, messages: messages[locale] }), [locale, setLocale, t])
+  const value = useMemo(() => ({ locale, setLocale, t }), [locale, setLocale, t])
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>
 }
 
